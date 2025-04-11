@@ -1,0 +1,9 @@
+# Node modules
+node_modules/
+dist/
+build/
+backend/
+
+# Python
+*.spec
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SnapAI</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: "Inter", sans-serif;
+        background: #eef1f5;
+        color: #333;
+      }
+      .container {
+        max-width: 720px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 30px;
+        color: #1a73e8;
+      }
+      input[type="text"],
+      textarea {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 15px;
+        background: #f9f9f9;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      button {
+        padding: 10px 18px;
+        border: none;
+        border-radius: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-top: 10px;
+        transition: background 0.3s ease;
+      }
+      #saveApiKey {
+        background-color: #4caf50;
+        color: white;
+      }
+      #capture {
+        background-color: #1a73e8;
+        color: white;
+      }
+      #resend {
+        background-color: #fbbc05;
+        color: white;
+      }
+      #reset {
+        background-color: #e53935;
+        color: white;
+      }
+      button:hover {
+        opacity: 0.92;
+      }
+      #result {
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        padding: 18px;
+        border-radius: 10px;
+        background-color: #fafafa;
+        min-height: 100px;
+        white-space: normal;
+        line-height: 1.5;
+      }
+      #imagePreview {
+        display: inline-block;
+        margin-right: 10px;
+        max-width: 48px;
+        max-height: 48px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+      }
+      #rules {
+        margin-top: 10px;
+      }
+      .container > * {
+        margin-bottom: 18px;
+      }
+
+      .container > *:last-child {
+        margin-bottom: 0;
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 13px;
+        color: #888;
+        margin-top: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📷 SnapAI</h1>
+      <p>Gemini 2.0 Flash</p>
+      <input type="text" id="apiKey" placeholder="🔑 Nhập API Key của bạn" />
+      <button id="saveApiKey">💾 Lưu</button>
+      <textarea
+        id="rules"
+        placeholder="📜 Nhập yêu cầu hoặc quy tắc vào đây..."
+      ></textarea>
+      <div>
+        <button id="capture">📸 Chụp màn hình</button>
+        <img id="imagePreview" />
+        <button id="resend">🔁 Hỏi</button>
+        <button id="reset">♻️ Reset</button>
+        <div style="margin-top: 15px">
+          <input type="checkbox" id="autostartToggle" />
+          <label for="autostartToggle">🔄 Tự động khởi động cùng Windows</label>
+        </div>
+      </div>
+      <div id="result">⏳ Kết quả sẽ hiển thị ở đây...</div>
+    </div>
+    <div class="footer">© 2025 bởi Mẫn - All rights reserved</div>
+    <script src="renderer.js"></script>
+  </body>
+</html>

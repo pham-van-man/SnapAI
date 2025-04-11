@@ -1,0 +1,45 @@
+{
+  "appId": "com.snapai.app",
+  "productName": "SnapAI",
+  "icon": "build/icon.ico",
+  "copyright": "Copyright © 2025",
+  "extraMetadata": {
+    "CompanyName": "SnapAI"
+  },
+  "files": [
+    "main.js",
+    "index.html",
+    "renderer.js",
+    "icon.ico",
+    "config.json",
+    "backend/**",
+    "!**/*.py",
+    "!**/*.spec"
+  ],
+  "extraFiles": [
+    {
+      "from": "backend/server.exe",
+      "to": "resources/server.exe"
+    }
+  ],
+  "directories": {
+    "buildResources": "build"
+  },
+  "win": {
+    "icon": "build/icon.ico",
+    "target": "nsis",
+    "artifactName": "${productName}-Setup-${version}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "runAfterFinish": true,
+    "shortcutName": "SnapAI",
+    "installerIcon": "build/icon.ico",
+    "uninstallerIcon": "build/icon.ico",
+    "installerHeaderIcon": "build/icon.ico",
+    "include": "build/uninstaller.nsh"
+  }
+}
