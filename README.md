@@ -20,7 +20,7 @@
 
 ## 🛠️ Cài đặt & sử dụng
 
-- Bước 1: Tải phiên bản phát hành mới nhất tại https://github.com/pham-van-man/SnapAI
+- Bước 1: Tải phiên bản phát hành mới nhất tại https://github.com/pham-van-man/SnapAI/releases/edit/v3.7
 
 - Bước 2: Cài đặt ứng dụng trên máy của bạn
 
