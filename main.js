@@ -48,7 +48,7 @@ function saveApiKey(apiKey) {
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 780,
+    height: 740,
     icon: path.join(__dirname, "icon.ico"),
     webPreferences: {
       nodeIntegration: true,
