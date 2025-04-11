@@ -28,7 +28,8 @@ async function resetConversation() {
       );
       window.capturedImage = null;
       document.getElementById("imagePreview").src = "";
-      document.getElementById("result").innerHTML = "⏳ Kết quả sẽ hiển thị ở đây...";
+      document.getElementById("result").innerHTML =
+        "⏳ Kết quả sẽ hiển thị ở đây...";
       document.getElementById("rules").value = "";
     }
   } catch (error) {
@@ -40,12 +41,15 @@ async function get_img() {
   ipcRenderer.send("show_main_windows");
   loading(true);
   try {
+    await axios.post("http://localhost:5000/reset");
     const response = await axios.post("http://localhost:5000/capture-image");
     const imageBase64 = response.data.image;
     window.capturedImage = imageBase64;
     const imageElement = document.getElementById("imagePreview");
     imageElement.src = `data:image/png;base64,${imageBase64}`;
-    document.getElementById("result").innerHTML = "⏳ Kết quả sẽ hiển thị ở đây...";
+    document.getElementById("result").innerHTML =
+      "⏳ Kết quả sẽ hiển thị ở đây...";
+    document.getElementById("rules").value = "";
     loading(false);
   } catch (error) {
     loading(false);
@@ -152,7 +156,6 @@ document.getElementById("autostartToggle").addEventListener("change", (e) => {
   const enabled = e.target.checked;
   ipcRenderer.send("set_autostart", enabled);
 });
-
 
 ipcRenderer.on("autostart_status", (_, enabled) => {
   document.getElementById("autostartToggle").checked = enabled;
